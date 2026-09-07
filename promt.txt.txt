@@ -1,0 +1,755 @@
+# Website Audit, Bug Fix, UX Upgrade & Premium Redesign
+
+You are acting as a **senior full-stack engineer, product designer, UX specialist, accessibility expert, and QA engineer**.
+
+Your job is to thoroughly inspect this existing website, find problems, fix them, and significantly improve the overall product quality.
+
+The goal is **not** to blindly redesign everything. Preserve the application's core purpose, functionality, data, and business logic while making the experience feel like a polished, modern, high-quality product that could realistically compete with the best professionally designed websites on the internet.
+
+Think:
+
+* exceptionally clear
+* modern
+* premium
+* intentional
+* fast
+* understandable
+* accessible
+* responsive
+* trustworthy
+* visually consistent
+* excellent on mobile and desktop
+* production-ready
+
+Do not settle for "looks okay." Look for the details that separate an average website from an excellent one.
+
+---
+
+## 1. FIRST: UNDERSTAND THE ENTIRE PROJECT
+
+Before changing code, inspect the project thoroughly.
+
+Understand:
+
+* framework
+* routing
+* application architecture
+* components
+* layouts
+* styling system
+* design system
+* state management
+* API calls
+* authentication
+* database usage
+* Supabase integration
+* Vercel configuration
+* environment-variable usage
+* forms
+* loading states
+* error handling
+* empty states
+* responsive behavior
+* accessibility
+* performance
+* SEO
+* analytics or tracking
+* third-party integrations
+
+Inspect the existing implementation rather than making assumptions.
+
+Read the relevant files needed to understand how the website works.
+
+Do not immediately start rewriting large sections.
+
+---
+
+# 2. USE AVAILABLE CLAUDE CODE SKILLS AND TOOLS
+
+Use the appropriate installed Claude Code skills whenever they materially improve the work.
+
+In particular:
+
+### Frontend design skill
+
+Use the installed **frontend design skill** to evaluate and improve:
+
+* visual hierarchy
+* typography
+* spacing
+* layout
+* responsive design
+* component consistency
+* visual polish
+* interaction design
+* usability
+* modern web conventions
+* overall visual quality
+
+Use it as a design expert, not merely as a code generator.
+
+### Supabase MCP
+
+Use the Supabase MCP when appropriate to inspect:
+
+* database structure
+* tables
+* relationships
+* authentication
+* policies
+* queries
+* RLS
+* database-related errors
+* data-loading behavior
+* potential performance problems
+
+Do not change database structure unnecessarily.
+
+If you find a database/security issue, fix it carefully and preserve existing functionality.
+
+### Vercel MCP
+
+Use the Vercel MCP when appropriate to inspect:
+
+* deployment status
+* build errors
+* runtime errors
+* deployment configuration
+* production problems
+* environment configuration
+* performance-related issues
+
+Check whether the deployed application differs from local expectations where possible.
+
+### Other built-in skills
+
+Use other installed skills/tools when they are clearly relevant.
+
+Do not use tools just for the sake of using them.
+
+---
+
+# 3. CREATE A COMPLETE AUDIT BEFORE MAKING MAJOR CHANGES
+
+Analyze the website from multiple perspectives.
+
+## Functional audit
+
+Look for:
+
+* broken buttons
+* broken links
+* incorrect navigation
+* forms that do not work
+* invalid states
+* race conditions
+* failed API requests
+* missing error handling
+* incorrect loading behavior
+* broken authentication flows
+* incorrect redirects
+* state bugs
+* stale data
+* duplicate requests
+* console errors
+* runtime errors
+* TypeScript errors
+* build errors
+* hydration problems
+* broken responsive interactions
+
+Actually verify suspicious functionality where possible.
+
+---
+
+## UX audit
+
+Ask:
+
+> "Could a first-time visitor understand this website within a few seconds?"
+
+Look for:
+
+* unclear value proposition
+* confusing navigation
+* weak calls to action
+* excessive cognitive load
+* inconsistent terminology
+* unclear buttons
+* ambiguous icons
+* bad information hierarchy
+* unnecessarily complicated flows
+* confusing forms
+* poor onboarding
+* missing feedback
+* weak empty states
+* weak error states
+* unclear next steps
+* unnecessary friction
+
+Make the interface easier to understand without removing useful functionality.
+
+---
+
+# 4. DESIGN QUALITY AUDIT
+
+Evaluate the visual design like a senior product designer.
+
+Inspect:
+
+### Typography
+
+Look for:
+
+* poor font choices
+* inconsistent font sizes
+* weak hierarchy
+* excessive font weights
+* poor line heights
+* difficult-to-read text
+* inconsistent heading styles
+
+Create a coherent type scale where appropriate.
+
+### Spacing
+
+Look for:
+
+* inconsistent margins
+* inconsistent padding
+* cramped sections
+* excessive whitespace
+* arbitrary spacing values
+* components that don't align
+
+Create consistent spacing rules.
+
+### Layout
+
+Look for:
+
+* awkward proportions
+* weak alignment
+* overly wide content
+* poor use of whitespace
+* clutter
+* weak grouping
+* poor visual flow
+
+### Colors
+
+Look for:
+
+* inconsistent colors
+* weak contrast
+* too many accent colors
+* excessive gradients
+* colors being used without meaning
+* poor dark/light mode handling if applicable
+
+### Components
+
+Look for inconsistent:
+
+* buttons
+* cards
+* inputs
+* dropdowns
+* dialogs
+* navigation
+* badges
+* tables
+* alerts
+* icons
+
+Create consistency rather than styling each component independently.
+
+---
+
+# 5. MAKE THE WEBSITE FEEL PREMIUM
+
+The target is not generic "AI website" styling.
+
+Avoid blindly using:
+
+* giant gradients everywhere
+* excessive glassmorphism
+* random glowing blobs
+* meaningless animations
+* excessive rounded cards
+* huge text for no reason
+* unnecessary shadows
+* decorative elements that reduce clarity
+
+Instead prioritize:
+
+* strong composition
+* excellent typography
+* purposeful whitespace
+* clear hierarchy
+* subtle depth
+* refined interactions
+* intentional motion
+* consistent alignment
+* high information density where appropriate
+* visual restraint
+
+The interface should feel designed, not generated.
+
+Ask yourself repeatedly:
+
+> "Why is this element here?"
+
+Remove things that do not improve comprehension or usability.
+
+---
+
+# 6. IMPROVE THE INFORMATION ARCHITECTURE
+
+Review the site's structure.
+
+Determine whether users can easily understand:
+
+1. Where they are
+2. What they can do
+3. Why they should care
+4. What action they should take next
+
+Improve:
+
+* navigation
+* headings
+* section order
+* CTA hierarchy
+* content grouping
+* labels
+* descriptions
+* onboarding
+* terminology
+
+Do not rewrite copy excessively unless it genuinely improves clarity.
+
+---
+
+# 7. RESPONSIVE DESIGN
+
+Test the interface mentally and through the implementation at:
+
+* mobile
+* tablet
+* laptop
+* large desktop
+
+Look for:
+
+* horizontal overflow
+* broken grids
+* awkward wrapping
+* oversized elements
+* tiny touch targets
+* desktop assumptions
+* mobile navigation problems
+* bad modal behavior
+* poor form layouts
+* unreadable tables
+* excessive page height
+
+Mobile should feel intentionally designed, not merely "desktop squeezed onto a phone."
+
+---
+
+# 8. ACCESSIBILITY
+
+Review and fix:
+
+* semantic HTML
+* keyboard navigation
+* focus states
+* ARIA usage
+* form labels
+* button labels
+* color contrast
+* heading hierarchy
+* screen-reader usability
+* touch target sizes
+* reduced-motion behavior where appropriate
+
+Do not add ARIA unnecessarily when semantic HTML already solves the problem.
+
+---
+
+# 9. PERFORMANCE
+
+Find realistic performance improvements.
+
+Inspect:
+
+* unnecessary rerenders
+* oversized assets
+* unnecessary JavaScript
+* inefficient data fetching
+* duplicate requests
+* expensive components
+* images
+* fonts
+* animations
+* bundle issues
+* client/server boundaries
+* caching opportunities
+
+Do not perform premature optimization.
+
+Prioritize improvements that have meaningful user impact.
+
+---
+
+# 10. SEO AND DISCOVERABILITY
+
+Where applicable inspect:
+
+* title tags
+* metadata
+* Open Graph
+* descriptions
+* canonical URLs
+* semantic structure
+* headings
+* crawlability
+* image alt text
+* sitemap
+* robots configuration
+
+Fix obvious issues without creating unnecessary complexity.
+
+---
+
+# 11. ERROR, LOADING, AND EMPTY STATES
+
+Every important asynchronous interaction should have an intentional state.
+
+Look for missing:
+
+* loading states
+* skeletons
+* error messages
+* retry behavior
+* empty states
+* success feedback
+* disabled states
+
+Avoid generic:
+
+> "Something went wrong."
+
+Tell the user what happened and what they can do next.
+
+---
+
+# 12. MICRO-INTERACTIONS
+
+Add subtle interaction polish where it improves usability.
+
+Examples:
+
+* hover feedback
+* focus feedback
+* button state transitions
+* subtle entrance animations
+* meaningful loading transitions
+* success feedback
+* expandable sections
+* confirmation states
+
+Do not animate everything.
+
+Motion should communicate state or improve perceived quality.
+
+Respect reduced-motion preferences.
+
+---
+
+# 13. SECURITY
+
+Look for obvious security problems.
+
+Pay particular attention to:
+
+* exposed secrets
+* unsafe client-side assumptions
+* insecure API usage
+* missing authorization
+* Supabase RLS
+* improper data exposure
+* unsafe input handling
+* insecure redirects
+
+Never expose secret keys or credentials.
+
+Do not weaken authentication or database security for convenience.
+
+---
+
+# 14. FIX BUGS BEFORE POLISHING
+
+Prioritize work roughly in this order:
+
+### Priority 0 — Critical
+
+Anything involving:
+
+* security
+* data corruption
+* authentication failure
+* major production failure
+
+### Priority 1 — Broken functionality
+
+Anything that prevents users from successfully completing important tasks.
+
+### Priority 2 — UX problems
+
+Anything that makes the website confusing, frustrating, or difficult to use.
+
+### Priority 3 — Visual quality
+
+Typography, spacing, hierarchy, consistency, responsiveness, polish.
+
+### Priority 4 — Nice-to-have improvements
+
+Only after the important problems are handled.
+
+---
+
+# 15. DO NOT DESTROY EXISTING FUNCTIONALITY
+
+Important:
+
+Do not rewrite the application unnecessarily.
+
+Before modifying something substantial, understand:
+
+* why it exists
+* what depends on it
+* what state it controls
+* what backend behavior it relies on
+
+Preserve:
+
+* existing features
+* data
+* routes
+* authentication
+* integrations
+* business logic
+
+Unless something is clearly broken or there is a strong reason to improve it.
+
+---
+
+# 16. USE A DESIGN SYSTEM
+
+Where the existing codebase supports it, improve the design system instead of creating one-off styles.
+
+Establish consistent values for things like:
+
+* colors
+* typography
+* spacing
+* radii
+* shadows
+* borders
+* controls
+* containers
+* breakpoints
+* transitions
+
+Prefer reusable tokens/components over duplicated magic values.
+
+---
+
+# 17. THINK LIKE A USER
+
+Pretend you are a new user.
+
+Start at the main entry point.
+
+Ask:
+
+> What is this?
+
+> What does it do?
+
+> What should I click?
+
+> What happens next?
+
+> Did my action work?
+
+> What if I made a mistake?
+
+> What if there is no data?
+
+> What if the network fails?
+
+Fix anything that causes unnecessary confusion.
+
+---
+
+# 18. VERIFY YOUR WORK
+
+After making changes:
+
+Run the relevant:
+
+* type checks
+* linting
+* unit tests
+* integration tests
+* build
+* development checks
+
+Also inspect the browser/application for:
+
+* console errors
+* visual regressions
+* broken interactions
+* layout issues
+* mobile problems
+
+Do not assume a successful build means the website is correct.
+
+---
+
+# 19. FINAL QUALITY PASS
+
+Before declaring the task complete, perform another independent review.
+
+Ask:
+
+### Does it look professional?
+
+### Is the hierarchy obvious?
+
+### Is the UI understandable?
+
+### Is the primary action obvious?
+
+### Are components visually consistent?
+
+### Does mobile feel intentional?
+
+### Are loading/error/empty states good?
+
+### Does everything still work?
+
+### Are there obvious bugs remaining?
+
+### Are there accessibility problems?
+
+### Are there obvious performance problems?
+
+### Would a strong professional frontend team be comfortable shipping this?
+
+Fix remaining issues you can identify.
+
+---
+
+# 20. IMPORTANT IMPLEMENTATION RULES
+
+Prefer:
+
+* small focused changes
+* reusable components
+* existing project conventions
+* accessible semantic markup
+* clean TypeScript
+* maintainable CSS
+* progressive improvements
+
+Avoid:
+
+* unnecessary dependencies
+* massive rewrites
+* changing working architecture without reason
+* removing features just because they are inconvenient
+* placeholder implementations
+* fake data
+* TODOs instead of solving problems
+* hiding errors
+* disabling lint/type checks
+* weakening security
+* introducing visual clutter
+
+When there is a choice between a clever solution and a simple maintainable one, prefer the maintainable solution.
+
+---
+
+# 21. WHEN FINISHED, GIVE ME A PROFESSIONAL REPORT
+
+At the end, provide a concise but useful report containing:
+
+## What you found
+
+The most important bugs/problems discovered.
+
+## What you fixed
+
+Specific changes made.
+
+## Design improvements
+
+The major UX/UI improvements.
+
+## Technical improvements
+
+Performance, accessibility, security, architecture, Supabase, Vercel, etc.
+
+## Remaining issues
+
+Anything you could not safely fix or verify.
+
+## Recommended next improvements
+
+Only include recommendations that would meaningfully improve the product.
+
+For each recommendation, explain briefly:
+
+* why it matters
+* expected impact
+* priority
+
+---
+
+# FINAL MINDSET
+
+Do not behave like a code autocomplete tool.
+
+Behave like a **senior engineer and product designer who has been given ownership of the website**.
+
+Take responsibility for finding problems rather than waiting for me to tell you what is wrong.
+
+Be proactive.
+
+Inspect first.
+
+Understand the system.
+
+Fix real problems.
+
+Improve clarity.
+
+Improve visual hierarchy.
+
+Improve usability.
+
+Improve responsive behavior.
+
+Improve quality.
+
+Verify everything.
+
+The finished result should feel like a deliberate, high-quality product rather than an unfinished developer project.
+
+Most importantly:
+
+**Make the website significantly better while preserving what already works.**

@@ -1,0 +1,299 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Instrument palette: navy ink on cool paper, one signal blue ----
+   *
+   * Two ramps per state, on purpose. `pass/warn/fail` are the FILL colours —
+   * meter segments, status dots, progress bars — where WCAG asks for 3:1.
+   * `*-ink` are the TEXT colours, darkened until they clear 4.5:1 against
+   * both white and their own wash. Reaching for the fill colour on 11px
+   * type is what put three of these below the line in the first place.
+   */
+  --color-ink: #0f1c2e;
+  --color-ink-soft: #26364d;
+  --color-mute: #5a6a80; /* 5.1:1 on paper; was #6b7a90 at 4.0:1 */
+  --color-line: #dfe4ec;
+  --color-line-soft: #ecf0f5;
+  --color-paper: #f4f6fa;
+  --color-surface: #ffffff;
+  --color-sunken: #fafbfd; /* row hover + inset panels */
+
+  --color-signal: #2b59ff;
+  --color-signal-deep: #1b3ecc;
+  --color-signal-wash: #eef2ff;
+
+  --color-pass: #128a5b;
+  --color-pass-ink: #0f7a50; /* 5.4:1 on white, 4.7:1 on wash */
+  --color-pass-wash: #e6f5ee;
+  --color-warn: #b4720b;
+  --color-warn-ink: #8f5a06; /* 5.8:1 on white, 5.3:1 on wash */
+  --color-warn-wash: #fdf3e2;
+  --color-fail: #cc2f36;
+  --color-fail-ink: #bd2930; /* 6.0:1 on white, 5.2:1 on wash */
+  --color-fail-wash: #fdecec;
+
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* ---- Type scale ---------------------------------------------------
+   *
+   * Two ramps. The UI ramp is a tight 1px-ish stepping because this is a
+   * dense readout and 14 vs 15 is a real distinction here. The display
+   * ramp is a ~1.2 modular scale. Every size on the site resolves to one
+   * of these steps; there are no in-between values.
+   */
+  --text-2xs: 0.6875rem; /* 11 — mono micro labels, table meta */
+  --text-2xs--line-height: 1.45;
+  --text-xs: 0.75rem; /* 12 — mono meta, timestamps */
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.8125rem; /* 13 — dense UI, secondary rows */
+  --text-sm--line-height: 1.55;
+  --text-base: 0.875rem; /* 14 — default UI text */
+  --text-base--line-height: 1.6;
+  --text-md: 0.9375rem; /* 15 — section body copy */
+  --text-md--line-height: 1.7;
+  --text-lg: 1rem; /* 16 — form controls (16 min: iOS zooms below it) */
+  --text-lg--line-height: 1.6;
+  --text-xl: 1.0625rem; /* 17 — lead paragraphs */
+  --text-xl--line-height: 1.7;
+  --text-2xl: 1.1875rem; /* 19 — card and step headings */
+  --text-2xl--line-height: 1.4;
+
+  --text-d1: 1.75rem; /* 28 */
+  --text-d1--line-height: 1.1;
+  --text-d2: 2.125rem; /* 34 */
+  --text-d2--line-height: 1.05;
+  --text-d3: 2.5rem; /* 40 */
+  --text-d3--line-height: 1;
+  --text-d4: 3rem; /* 48 */
+  --text-d4--line-height: 0.98;
+  --text-d5: 3.5rem; /* 56 */
+  --text-d5--line-height: 0.96;
+
+  /* The two bespoke instrument readouts: the grade letter on the meter. */
+  --text-readout: 4rem;
+  --text-readout--line-height: 0.8;
+  --text-readout-lg: 5rem;
+  --text-readout-lg--line-height: 0.8;
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: #fff;
+}
+
+/* ---- Type roles -------------------------------------------------- */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.038em;
+  line-height: 0.98;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mute);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-ligatures: none;
+}
+
+/* ---- Instrument grid: the page sits on graph paper ---------------- */
+
+.gridpaper {
+  background-image:
+    linear-gradient(to right, rgba(15, 28, 46, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 28, 46, 0.07) 1px, transparent 1px);
+  background-size: 34px 34px;
+  background-position: center top;
+}
+
+.gridpaper-fade {
+  -webkit-mask-image: radial-gradient(ellipse 90% 65% at 50% 32%, #000 35%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 65% at 50% 32%, #000 35%, transparent 100%);
+}
+
+/* ---- Focus: always visible, never a browser default --------------- */
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Keyboard users land here first and can jump the nav. Visible only when
+   focused, so it costs the visual design nothing. */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  background: var(--color-ink);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 700;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* ---- The scan sequence ------------------------------------------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(220%);
+  }
+}
+
+@keyframes segment-in {
+  from {
+    transform: scaleY(0.15);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.rise {
+  animation: rise 0.5s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+.sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 45%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(43, 89, 255, 0.16),
+    transparent
+  );
+  animation: sweep 1.15s ease-in-out infinite;
+}
+
+.segment {
+  transform-origin: bottom;
+  animation: segment-in 0.4s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+}
+
+.pulse {
+  animation: pulse-soft 1.2s ease-in-out infinite;
+}
+
+/* Loading placeholders read as unlit meter segments rather than grey blobs,
+   so a pending screen looks like the same instrument waiting for a signal. */
+.skeleton {
+  background: var(--color-line);
+  border-radius: 3px;
+  animation: pulse-soft 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    /* The staggered entrances set animation-delay inline, up to ~600ms on the
+       last check row. Collapsing only the duration left `both` fill holding
+       those elements at opacity 0 for the whole delay, so reduced-motion
+       users watched the results panel appear one row at a time anyway — the
+       exact effect the preference asks us to drop. */
+    animation-delay: 0s !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---- Record syntax highlighting ---------------------------------- */
+
+.tok-strict {
+  color: var(--color-pass-ink);
+  font-weight: 600;
+  background: var(--color-pass-wash);
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.tok-loose {
+  color: var(--color-warn-ink);
+  font-weight: 600;
+  background: var(--color-warn-wash);
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.tok-bad {
+  color: var(--color-fail-ink);
+  font-weight: 600;
+  background: var(--color-fail-wash);
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.tok-key {
+  color: var(--color-signal);
+  font-weight: 600;
+}
+
+.tok-mute {
+  color: var(--color-mute);
+}

@@ -1,0 +1,11 @@
+node_modules
+.next
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# Local env only. .env.example is deliberately NOT ignored — it is the
+# documentation of which variables exist. The Vercel CLI appends a blanket
+# `.env*` on link, which silently excludes it.
+.env
+.env*.local
