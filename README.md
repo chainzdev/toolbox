@@ -1,4 +1,4 @@
-# Inboxproof
+# Inboxprooff
 
 Email authentication auditing and monitoring. Reads the DNS records that decide
 whether a domain's mail is trusted — SPF, DKIM, DMARC, MX, MTA-STS, TLS-RPT and
